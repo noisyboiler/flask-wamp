@@ -18,7 +18,7 @@
 .. _Python36: https://pypi.python.org/pypi/wampy/
 
 
-flask-wamp
+Flask-WAMP
 ~~~~~~~~~~
 
 Flask apps with `WAMP`_ messaging.
@@ -93,6 +93,7 @@ The test runner uses the Crossbar test fixture provided by wampy.
 or, more simply
 
 ::
+
 	$ make tests
 
 
