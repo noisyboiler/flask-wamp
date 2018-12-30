@@ -19,7 +19,7 @@ setup(
     version='0.1.0',
     description='WAMP RPC and Pub/Sub for Flask',
     long_description=long_description,
-    long_description_content_type='text/rst',
+    long_description_content_type='text/x-rst',
     url='https://github.com/noisyboiler/flask-wamp',
     author='Simon Harrison',
     author_email='noisyboiler@googlemail.com',
