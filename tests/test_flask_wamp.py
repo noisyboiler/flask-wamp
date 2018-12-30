@@ -96,8 +96,6 @@ def create_app(collector=None):
     @wamp_app.consume(topic="spam")
     def spam_eater(message):
         collector.append(message)
-        import pdb
-        pdb.set_trace()
 
     @app.route('/todays_date')
     def get_date(*args, **kwargs):
