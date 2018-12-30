@@ -8,25 +8,12 @@ from wampy.peers.clients import Client
 from wampy.roles.callee import callee
 from wampy.roles.subscriber import subscribe
 from wampy.testing.helpers import (
+    assert_stops_raising,
     wait_for_registrations, wait_for_subscriptions
 )
 
 
 from flask_wamp import WAMP
-
-
-def assert_stops_raising(
-        fn, exception_type=Exception, timeout=5, interval=0.1):
-
-    with async_adapter.Timeout(timeout):
-        while True:
-            try:
-                fn()
-            except exception_type:
-                pass
-            else:
-                return
-            async_adapter.sleep(interval)
 
 
 class DateService(Client):
