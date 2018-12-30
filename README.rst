@@ -25,7 +25,7 @@ Flask apps with `WAMP`_ messaging.
 
 For a background as to what WAMP is, please see `here`_.
 
-Remember, The Web Application Messaging Protocl is not *just* for the Web. So, if you would like your Flask app to be a WAMP component in a larger architecture... then you can! flask-wamp gives you two options:
+Remember, The Web Application Messaging Protocl is not *just* for the Web. So, if you would like your Flask app to be a WAMP component in a larger architecture... then you can! **flask-wamp** gives you two options:
 
 1. rRPC or PubSub messaging between Flask Apps, supporting a micro-service architecture for the backend
 2. rRPC or PubSub messaging between your Browser and Flask Apps, supporting async, concurrent calls and real-time updates for the frontend users
