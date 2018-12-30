@@ -83,4 +83,4 @@ The test runner uses the Crossbar test fixture provided by wampy.
 .. _Gevent: http://www.gevent.org/
 .. _eventlet: http://eventlet.net/
 .. _wampy: https://github.com/noisyboiler/wampy
-.. _test_flask_wamp.py`: https://github.com/noisyboiler/flask-wamp/blob/master/tests/test_flask_wamp.py
+.. _test_flask_wamp.py: https://github.com/noisyboiler/flask-wamp/blob/master/tests/test_flask_wamp.py
