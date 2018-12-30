@@ -23,6 +23,7 @@ setup(
     author='Simon Harrison',
     author_email='noisyboiler@googlemail.com',
     license='Mozilla Public License 2.0',
+    zip_safe=False,
     classifiers=[
         'Development Status :: 4 - Beta',
         'License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)',
