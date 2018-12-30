@@ -1,0 +1,13 @@
+language: python
+
+sudo: false
+
+python:
+  - "3.5"
+  - "3.6"
+
+script:
+  - pip install --upgrade setuptools
+  - pip install .
+  - pip install --editable .[dev]
+  - py.test ./tests -s -vv
