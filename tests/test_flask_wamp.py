@@ -115,7 +115,9 @@ def test_register_callees(app):
         assert wampy.rpc.goodbye() == 'Goodbye, World!'
 
 
-def test_can_register_callees_as_flask_routes(app, client):
+def test_can_register_callees_as_flask_routes(app):
+    client = app.test_client()
+
     assert client.get('/hello').data == b'Hello, World!'
     assert client.get('/goodbye').data == b'Goodbye, World!'
 
@@ -131,14 +133,17 @@ def test_register_topics(app, collector):
     assert "ham" in collector
 
 
-def test_rpc_from_flask_app(app, client):
+def test_rpc_from_flask_app(app):
+    client = app.test_client()
+
     assert (
         client.get('/todays_date').data ==
         bytes(datetime.date.today().isoformat(), 'utf-8')
     )
 
 
-def test_publish_from_flask_app(app, client, spam_subscriber):
+def test_publish_from_flask_app(app, spam_subscriber):
+    client = app.test_client()
     client.get('/publish_spam')
 
     def test_call_count():
