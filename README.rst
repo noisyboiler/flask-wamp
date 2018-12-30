@@ -21,7 +21,7 @@ Use Cases
 Why Not Just WebSockets?
 ------------------------
 
-WebSockets are of course a sound implementation for real-time client-server communication. You'll need some Flask Middleware for this, such as `Flask-SocketIO`_, or `flask-socjets`_. With WAMP, you do not.
+WebSockets are of course a sound implementation for real-time client-server communication. You'll need some Flask Middleware for this, such as `Flask-SocketIO`_, or `flask-sockets`_. With WAMP, you do not.
 
 You might then struggle to find a mature WebSocket RPC between your components, and even if you do, each component will need to know the other exists and exacrtly the host, port and path to find it on - with WAMP you do not.
 
@@ -44,20 +44,20 @@ Then, much like with `nameko-wamp`_, you can declare a Flask endpoint/view to fu
 
 Once you've done this it can be communicated with over the WAMP protocol by any other WAMP Caller or Publisher component, whether this is another Flask App or a Browser, and assuming they are all attached to the same Realm. Declarations are done with *decorators*. What these "views" then do under the decoration is entirelly up to you.
 
-For a Flask Peer to fulfill a Caller or Publisher Role you need a handle on that *wampy* instance and the API it provides. Again, just like `nameko-wamp`_, we use Dependency Injection so all your views have access to wampy via the `g` object. For example ::
+For a Flask Peer to fulfill a Caller or Publisher Role you need a handle on that *wampy* instance and the API it provides. Again, just like `nameko-wamp`_, we use Dependency Injection so all your views have access to wampy via the `g` object. For example
 
-... code-block:: python
+.. code-block:: python
 
-	from flask import g
+        from flask import g
 
-	def my_view_function():
-		wampy = g.wampy
-		wampy.rpc.some_remote_procedure(*args, **kwargs)
-		wampy.publish(topic="some topic", message="this is fun!")
+        def my_view_function():
+            wampy = g.wampy
+            wampy.rpc.some_remote_procedure(*args, **kwargs)
+            wampy.publish(topic="some topic", message="this is fun!")
 
+            # maybe do other stuff and return something
 
 Every view will have access to wampy, whether it is a decorated view or not. Wampy is already connected to Crossbar so you do *not* need to use it as a context manager as the wampy docs suggest. See `ReadTheDocs`_ for more on wampy's API.
-
 
 Running the tests
 ~~~~~~~~~~~~~~~~~
@@ -77,6 +77,7 @@ The test runner uses the Crossbar test fixture provided by wampy.
 .. _flask-sockets: https://github.com/heroku-python/flask-sockets
 .. _wampy.js: https://github.com/KSDaemon/wampy.js/
 .. _WAMP Protocol: http://wamp-proto.org/
+.. _WAMP: http://wamp-proto.org/
 .. _here: https://medium.com/@noisyboiler/the-web-application-messaging-protocol-d8efe95aeb67
 .. _ReadTheDocs: http://wampy.readthedocs.io/en/latest/
 .. _Gevent: http://www.gevent.org/
