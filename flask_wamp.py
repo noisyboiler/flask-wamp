@@ -32,7 +32,6 @@ class FlaskWAMPClient(Client):
         message = kwargs['message']
         topic = kwargs['meta']['topic']
         for recognised_topic in self._topics:
-            # alternatively could mark providers with subscription IDs?
             if recognised_topic == topic:
                 self._topics[recognised_topic](message=message)
 
