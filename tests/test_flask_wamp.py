@@ -1,6 +1,7 @@
 import datetime
 
 import pytest
+import six
 from flask import g, jsonify, Flask
 from wampy.backends import async_adapter
 from wampy.constants import DEFAULT_REALM
@@ -136,10 +137,10 @@ def test_register_topics(app, collector):
 def test_rpc_from_flask_app(app):
     client = app.test_client()
 
-    assert (
-        client.get('/todays_date').data ==
-        bytes(datetime.date.today().isoformat(), 'utf-8')
-    )
+    date_str = client.get('/todays_date').data
+    today = datetime.date.today().isoformat()
+
+    assert date_str == six.b(today)
 
 
 def test_publish_from_flask_app(app, spam_subscriber):
