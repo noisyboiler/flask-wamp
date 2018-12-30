@@ -1,3 +1,23 @@
+.. -*- mode: rst -*-
+
+|Travis|_ |Python27|_ |Python34|_ |Python35|_ |Python36|_ 
+
+.. |Travis| image:: https://travis-ci.org/noisyboiler/flask-wamp.svg?branch=master
+.. _Travis: https://travis-ci.org/noisyboiler/wampy
+
+.. |Python27| image:: https://img.shields.io/badge/python-2.7-blue.svg
+.. _Python27: https://pypi.python.org/pypi/wampy/
+
+.. |Python34| image:: https://img.shields.io/badge/python-3.4-blue.svg
+.. _Python34: https://pypi.python.org/pypi/wampy/
+
+.. |Python35| image:: https://img.shields.io/badge/python-3.5-blue.svg
+.. _Python35: https://pypi.python.org/pypi/wampy/
+
+.. |Python36| image:: https://img.shields.io/badge/python-3.6-blue.svg
+.. _Python36: https://pypi.python.org/pypi/wampy/
+
+
 flask-wamp
 ~~~~~~~~~~
 
@@ -44,7 +64,7 @@ Then, much like with `nameko-wamp`_, you can declare a Flask endpoint/view to fu
 
 Once you've done this it can be communicated with over the WAMP protocol by any other WAMP Caller or Publisher component, whether this is another Flask App or a Browser, and assuming they are all attached to the same Realm. Declarations are done with *decorators*. What these "views" then do under the decoration is entirelly up to you.
 
-For a Flask Peer to fulfill a Caller or Publisher Role you need a handle on that **wampy** instance and the API it provides. Again, just like `nameko-wamp`_, we use Dependency Injection so all your views have access to wampy via the `g` object. For example,
+For a Flask Peer to fulfill a Caller or Publisher Role you need a handle on that **wampy** instance and the API it provides. Again, just like `nameko-wamp`_, we use Dependency Injection so all your views have access to wampy via the **g** object. For example,
 
 .. code-block:: python
 
@@ -68,6 +88,12 @@ The test runner uses the Crossbar test fixture provided by wampy.
 
     $ pip install --editable .[dev]
     $ py.test ./test -v
+
+
+or, more simply
+
+::
+	$ make tests
 
 
 .. _Crossbar.io: http://crossbar.io/docs/Quick-Start/
