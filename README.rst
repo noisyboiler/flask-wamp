@@ -70,6 +70,7 @@ For a Flask Peer to fulfill a Caller or Publisher Role you need a handle on that
 
         from flask import g
 
+        @app.route('/foo')
         def my_view_function():
             wampy = g.wampy
             wampy.rpc.some_remote_procedure(*args, **kwargs)
