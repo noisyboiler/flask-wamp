@@ -38,7 +38,7 @@ How It Works
 
 This is a standard Flask Extension.
 
-Under the hood you have a single `wampy`_ client instance with a WAMP WebSocket connection to Crossbar. So for every instance of your Flask App you have, you also have a single instance of wampy. You must wrap your Flask App in the flask-wamp App to achieve this, providing the Router host and Realm name. This should come from your Flask Config object - see `test_flask_wamp` for an example.
+Under the hood you have a single `wampy`_ client instance with a WAMP WebSocket connection to Crossbar. So for every instance of your Flask App you have, you also have a single instance of wampy. You must wrap your Flask App in the flask-wamp App to achieve this, providing the Router host and Realm name. This should come from your Flask Config object - see `test_flask_wamp.py`_ for an example.
 
 Then, much like with `nameko-wamp`_, you can declare a Flask endpoint/view to fulfill the WAMP Callee or Subscriber Role. This is doesn't stop you also routing HTTP requests to these views - bargain!
 
@@ -83,3 +83,4 @@ The test runner uses the Crossbar test fixture provided by wampy.
 .. _Gevent: http://www.gevent.org/
 .. _eventlet: http://eventlet.net/
 .. _wampy: https://github.com/noisyboiler/wampy
+.. _test_flask_wamp.py`: https://github.com/noisyboiler/flask-wamp/blob/master/tests/test_flask_wamp.py
