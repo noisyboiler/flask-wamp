@@ -38,13 +38,13 @@ How It Works
 
 This is a standard Flask Extension.
 
-Under the hood you have a single wampy client instance with a WAMP WebSocket connection to Crossbar. So for every instance of your Flask App you have, you also have a single instance of wampy. You must wrap your Flask App in the flask-wamp App to achieve this, providing the Router host and Realm name. This should come from your Flask Config object - see `test_flask_wamp` for an example.
+Under the hood you have a single `wampy`_ client instance with a WAMP WebSocket connection to Crossbar. So for every instance of your Flask App you have, you also have a single instance of wampy. You must wrap your Flask App in the flask-wamp App to achieve this, providing the Router host and Realm name. This should come from your Flask Config object - see `test_flask_wamp` for an example.
 
 Then, much like with `nameko-wamp`_, you can declare a Flask endpoint/view to fulfill the WAMP Callee or Subscriber Role. This is doesn't stop you also routing HTTP requests to these views - bargain!
 
 Once you've done this it can be communicated with over the WAMP protocol by any other WAMP Caller or Publisher component, whether this is another Flask App or a Browser, and assuming they are all attached to the same Realm. Declarations are done with *decorators*. What these "views" then do under the decoration is entirelly up to you.
 
-For a Flask Peer to fulfill a Caller or Publisher Role you need a handle on that *wampy* instance and the API it provides. Again, just like `nameko-wamp`_, we use Dependency Injection so all your views have access to wampy via the `g` object. For example
+For a Flask Peer to fulfill a Caller or Publisher Role you need a handle on that **wampy** instance and the API it provides. Again, just like `nameko-wamp`_, we use Dependency Injection so all your views have access to wampy via the `g` object. For example,
 
 .. code-block:: python
 
@@ -57,7 +57,7 @@ For a Flask Peer to fulfill a Caller or Publisher Role you need a handle on that
 
             # maybe do other stuff and return something
 
-Every view will have access to wampy, whether it is a decorated view or not. Wampy is already connected to Crossbar so you do *not* need to use it as a context manager as the wampy docs suggest. See `ReadTheDocs`_ for more on wampy's API.
+Every view will have access to wampy, whether it is a decorated view or not. Wampy is already connected to Crossbar so you do *not* need to use it as a context manager as the `wampy`_ docs suggest. See `ReadTheDocs`_ for more on wampy's API.
 
 Running the tests
 ~~~~~~~~~~~~~~~~~
@@ -82,3 +82,4 @@ The test runner uses the Crossbar test fixture provided by wampy.
 .. _ReadTheDocs: http://wampy.readthedocs.io/en/latest/
 .. _Gevent: http://www.gevent.org/
 .. _eventlet: http://eventlet.net/
+.. _wampy: https://github.com/noisyboiler/wampy
