@@ -43,7 +43,7 @@ Why Not Just WebSockets?
 
 WebSockets are of course a sound implementation for real-time client-server communication. You'll need some Flask Middleware for this, such as `Flask-SocketIO`_, or `flask-sockets`_. With WAMP, you do not.
 
-You might then struggle to find a mature WebSocket RPC between your components, and even if you do, each component will need to know the other exists and exacrtly the host, port and path to find it on - with WAMP you do not.
+You might then struggle to find a mature WebSocket RPC between your components - and even if you do - each component will need to know the other exists and exacrtly the host, port and path to find it on - with WAMP, you do not.
 
 With WAMP you also have consistency in technology between front end and back, and inter-communication between backend components.
 
