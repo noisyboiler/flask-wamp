@@ -36,7 +36,7 @@ setup(
     keywords='WAMP RPC Flask',
     packages=find_packages(),
     install_requires=[
-        "Flask==1.0.2",
+        "Flask==2.3.2",
         "wampy==0.9.20",
     ],
     extras_require={
